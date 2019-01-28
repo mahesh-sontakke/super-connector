@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Twitter -->
+  <meta name="twitter:site" content="@themepixels">
+  <meta name="twitter:creator" content="@themepixels">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bracket Plus">
+  <meta name="twitter:description" content="Premium Quality and Responsive UI for Dashboard.">
+  <meta name="twitter:image" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+
+  <!-- Facebook -->
+  <meta property="og:url" content="http://themepixels.me/bracketplus">
+  <meta property="og:title" content="Bracket Plus">
+  <meta property="og:description" content="Premium Quality and Responsive UI for Dashboard.">
+
+  <meta property="og:image" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+  <meta property="og:image:secure_url" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+
+  <!-- Meta -->
+  <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+  <meta name="author" content="ThemePixels">
+
+  <title>Supper App Connector</title>
+
+  <!-- vendor css -->
+  <link href="../lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../lib/highlightjs/styles/github.css" rel="stylesheet">
+  <link href="../lib/select2/css/select2.min.css" rel="stylesheet">
+  <link href="../lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="../lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
+
+  <!-- Bracket CSS -->
+  <link rel="stylesheet" href="../css/bracket.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.js"></script>
+</head>
+
+<body>
+  <!-- ########## START: LEFT PANEL ########## -->
+  <div class="br-logo"><a href=""><span>[</span>Supper <i>App</i><span>]</span></a></div>
+  <div class="br-sideleft sideleft-scrollbar">
+    <label class="sidebar-label pd-x-10 mg-t-20 op-3"></label>
+    <ul class="br-sideleft-menu">
+      <li class="br-menu-item">
+        <a href="index.html" class="br-menu-link">
+          <i class="menu-item-icon icon ion-ios-list-outline tx-24"></i>
+          <span class="menu-item-label">Task</span>
+        </a><!-- br-menu-link -->
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="contacts.html" class="br-menu-link">
+          <i class="menu-item-icon icon ion-ios-person tx-24"></i>
+          <span class="menu-item-label">Contacts</span>
+        </a><!-- br-menu-link -->
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="#" class="br-menu-link">
+          <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
+          <span class="menu-item-label">Policies</span>
+        </a><!-- br-menu-link -->
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="#" class="br-menu-link">
+          <i class="menu-item-icon icon ion-ios-navigate-outline tx-24"></i>
+          <span class="menu-item-label">Crons</span>
+        </a><!-- br-menu-link -->
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="#" class="br-menu-link">
+          <i class="menu-item-icon icon ion-ios-color-filter-outline tx-24"></i>
+          <span class="menu-item-label">Deals</span>
+        </a><!-- br-menu-link -->
+      </li><!-- br-menu-item -->
+
+    </ul><!-- br-sideleft-menu -->
+
+    <!-- <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">Information Summary</label> -->
+    <br>
+  </div><!-- br-sideleft -->
+  <!-- ########## END: LEFT PANEL ########## -->
+
+  <!-- ########## START: HEAD PANEL ########## -->
+  <div class="br-header">
+    <div class="br-header-left">
+      <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+      <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+
+    </div><!-- br-header-left -->
+  </div><!-- br-header -->
+  <!-- ########## END: HEAD PANEL ########## -->
+
+  <!-- ########## START: MAIN PANEL ########## -->
+  <div class="br-mainpanel">
+    <div class="br-pageheader">
+      <nav class="breadcrumb pd-0 mg-0 tx-12">
+        <a class="breadcrumb-item" href="index.html">Dashboard</a>
+        <!-- <a class="breadcrumb-item" href="#">Tables</a> -->
+        <span class="breadcrumb-item active">Tasks</span>
+      </nav>
+    </div><!-- br-pageheader -->
+    <div class="br-pagetitle">
+      <i class="icon icon ion-ios-list-outline"></i>
+      <div>
+        <h4>Task List</h4>
+        <p class="mg-b-0">DataTables is a plug-in for the jQuery Javascript library.</p>
+      </div>
+    </div><!-- d-flex -->
+
+    <div class="br-pagebody">
+      <div class="br-section-wrapper">
+        <!-- <h6 class="br-section-label">Basic Responsive DataTable</h6>
+            <p class="br-section-text">Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</p> -->
+
+        <div class="table-wrapper">
+          <table id="datatable1" class="table display responsive nowrap">
+            <thead class="text-center">
+              <tr>
+                <!-- <th class="wd-15p"><i class="icon ion-navicon-round"></i></th> -->
+                <th class="wd-15p">Name</th>
+                <th class="wd-15p">Create Time</th>
+                <th class="wd-20p">Sync With AC</th>
+               
+                <th class="wd-25p">Task Id</th>
+                <th class="wd-25p">Status Name</th>
+                <th class="wd-25p">Assign Name</th>
+                <th class="wd-25p">List Name</th>
+                <!-- <th class="wd-25p"><i>i</i></th> -->
+              </tr>
+            </thead>
+            <!-- <tbody>2
+                  <tr>
+                    <td>Tiger</td>
+                    <td>Test</td>
+                    <td>25 Years</td>
+                    <td>2011/04/25</td>
+                    <td>t.nixon@datatables.net</td>
+                  </tr>                
+                </tbody> -->
+          </table>
+        </div><!-- table-wrapper -->
+
+
+      </div><!-- br-section-wrapper -->
+    </div><!-- br-pagebody -->
+    <footer class="br-footer">
+      <div class="footer-left">
+        <div class="mg-b-2">Copyright &copy; 2019. Techinvento. All Rights Reserved.</div>
+        <div></div>
+      </div>
+      <div class="footer-right d-flex align-items-center">
+        <span class="tx-uppercase mg-r-10">Share:</span>
+        <a target="_blank" class="pd-x-5" href="#"><i class="fab fa-facebook tx-20"></i></a>
+        <a target="_blank" class="pd-x-5" href="#"><i class="fab fa-twitter tx-20"></i></a>
+      </div>
+    </footer>
+  </div><!-- br-mainpanel -->
+  <!-- ########## END: MAIN PANEL ########## -->
+
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/jquery-ui/ui/widgets/datepicker.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script src="../lib/moment/min/moment.min.js"></script>
+  <script src="../lib/peity/jquery.peity.min.js"></script>
+  <script src="../lib/highlightjs/highlight.pack.min.js"></script>
+  <script src="../lib/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="../lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+  <script src="../lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
+  <script src="../lib/select2/js/select2.min.js"></script>
+
+  <script src="../js/bracket.js"></script>
+  <script>
+    $(function () {
+      'use strict';
+      $('#datatable1').DataTable({
+        "bLengthChange": false,
+        "bDeferRender": true,
+        searching: true,
+        serverSide: true,
+
+        ajax: function (data, callback, settings) {
+        
+          $.ajax({
+            url: "http://localhost:3000/datatable/deals",
+            type: "get",
+            data: data,
+            success: function (successData) {
+              callback(successData)
+            },
+            error: function (errData) {
+              alert(errData);
+            }
+          });
+        },
+        "drawCallback": function () {
+
+        },
+        columns: [{
+          data: 'name',
+          render:function(data){
+            var newStr=data.length>20?data.slice(0,20)+'...':data;
+            return '<span>'+newStr+'</span>';
+          }
+        },
+        {
+          data:'createTime',
+          render:function(data){
+            return moment(data).format('lll')
+          }
+        },
+        {
+          data:'syncWithAc',
+          // render:function(data){
+          //   var newData=data? moment(data).format('lll'):data;
+          //   return newData;
+          // }
+        },{
+          data:'taskId'
+        }   
+        ,{
+          data:'statusName'
+        },{
+          data:'assigneeName'
+        },{
+          data:'listName'
+        }
+        ],
+        scrollCollapse: true,
+        scroller: true,
+        deferRender: true,
+        bAutoWidth: false
+
+      });
+     
+
+
+
+      // $('#datatable1').DataTable({
+      //   ajax:"./data/taskData.json",
+      //   deferRender:    true,
+      //   scrollY:        200,
+      //   scrollCollapse: true,
+      //   scroller:       true,
+      //   columns:[{
+      //     data:'name'
+      //   }],
+      //   initComplete: function (){
+      //     this.api().row( 1000 ).scrollTo();
+      //   }
+      // });
+
+      // Select2
+      $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+    });
+
+  </script>
+</body>
+
+</html>
