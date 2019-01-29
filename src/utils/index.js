@@ -173,11 +173,11 @@ module.exports = {
    
   },
 
-  activeCampAddCustomField: function (idArr, apiData) {
+  activeCampAddDealTask: function (idArr, apiData) {
     return new Promise((resolve1, reject1) => {
       var options = {
         method: 'post',
-        url: process.env.ACTIVE_CAMPAIGN_API_DOMAIN + "/dealCustomFieldMeta",
+        url: process.env.ACTIVE_CAMPAIGN_API_DOMAIN + "/dealTasks",
         headers: {
           'api-token': process.env.ACTIVE_CAMPAIGN_API_KEY,
           'content-type': 'application/json'
@@ -192,13 +192,9 @@ module.exports = {
           if (body.errors) {
             resolve1(body.errors);
           } else {
-            console.log(response, body);
-
-            var acId = body.dealCustomFieldMetum ? body.dealCustomFieldMetum.id : '';
-            var obj=apiData.dealCustomFieldMetum;
-            obj.acId= acId;
-            idArr.push(obj)
-            resolve1(obj)
+            var acId = body.dealTask ? body.dealTask.id : '';
+            idArr.push({success:apiData.dealTask._id,acId:acId})
+            resolve1(body.dealTask)
           }
         }
       });
