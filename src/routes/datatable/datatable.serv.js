@@ -169,4 +169,81 @@ DatatableService.deals = (ajaxData) => {
 
 }
 
+DatatableService.crons = (ajaxData) => {
+    var filteredSQ = {}
+    var sortQ={};
+    var colNo=parseInt(ajaxData.order[0]['column']);
+    var dir=ajaxData.order[0]['dir'];
+    var fieldName = ajaxData['columns'][colNo]['data'];
+    sortQ[fieldName]=dir=="asc"?1:-1;
+    var getTotalCount = () => {
+        return new Promise((resolve2, reject2) => {
+            var cronsList = Database.getCollection('cronsList');
+            cronsList.count({}, (err, counts) => {
+                err ? reject2(err) : resolve2(counts)
+            })
+        })
+    }
+    var getFilterCount = () => {
+        return new Promise((resolve2, reject2) => {
+            var cronsList = Database.getCollection('cronsList');
+            cronsList.count(filteredSQ, (err, counts) => {
+                err ? reject2(err) : resolve2(counts)
+            })
+        })
+    }
+    var getFilterData = () => {
+        var start = 0;
+        var length = 10;
+        if (!ajaxData.start) {
+            start = 0;
+        } else {
+            start = parseInt(ajaxData.start);
+        }
+        if (!ajaxData.length) {
+            length = 10;
+        } else {
+            length = parseInt(ajaxData.length);
+        }
+        return new Promise((resolve2, reject2) => {
+            var cronsList = Database.getCollection('cronsList');
+            cronsList.find(filteredSQ).sort(sortQ).skip(start).limit(length).toArray((err, data) => {
+                err ? reject2(err) : resolve2(data)
+            })
+        })
+    }
+    return new Promise((resolve1, reject1) => {
+        var finalObj = {};
+        async.waterfall([
+            (cb) => {
+                getTotalCount().then((data) => {
+                    finalObj.recordsTotal = data;
+                    cb(null, finalObj)
+                }).catch((err) => {
+                    cb(err)
+                })
+            },
+            (finalObj, cb) => {
+                getFilterCount().then((data) => {
+                    finalObj.recordsFiltered = data;
+                    cb(null, finalObj)
+                }).catch((err) => {
+                    cb(err)
+                })
+            },
+            (finalObj, cb) => {
+                getFilterData().then((data) => {
+                    finalObj.data = data;
+                    cb(null, finalObj)
+                }).catch((err) => {
+                    cb(err)
+                })
+            }
+        ], (err, data) => {
+            err ? reject1(err) : resolve1(data)
+        })
+    })
+
+}
+
 module.exports = DatatableService;

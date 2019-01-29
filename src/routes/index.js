@@ -27,10 +27,11 @@ routes.setPermissions = function() {
   app.all('/api/fetchUseCases', Permissions.fetchUseCases); */
 }
 routes.bindApi = function() {
-  app.use('/api', require('./user'));
+  // app.use('/api/', require('./user'));
   app.use('/ytoa', require('./contacts'));
   app.use('/datatable', require('./datatable'));
-  app.use('/api', require('./active-campaign/active.api'));
+  app.use('/activeCampaign', require('./active-campaign/active.api'));
+  app.use('/qqCatalsyt', require('./qq-catalyst/qq.api'));
 }
 routes.statics = function() {
   app.use("/", express.static(path.join(__baseDir,"frontend","screens")));

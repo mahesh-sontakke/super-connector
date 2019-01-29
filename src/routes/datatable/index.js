@@ -26,4 +26,17 @@ routes.get('/deals', (req,res)=>{
           })
     })
 })
+routes.get('/crons', (req,res)=>{
+    var ajax_data = req.query;
+    DatatableService.crons(ajax_data).then((data)=>{
+        data.draw=Number(req.body.draw);
+        data.success=true;
+        return res.send(data)
+    }).catch((err)=>{
+        res.send({
+            success: false,
+            data: err
+          })
+    })
+})
 module.exports = routes;
