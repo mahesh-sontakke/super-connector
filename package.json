@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "set TESTING=true && mocha --timeout 15000",
-    "start-dev": "node --inspect app.js"
+    "start-dev": "node --inspect app.js",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
